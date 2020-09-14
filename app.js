@@ -15,6 +15,7 @@ app.get('/datas',(req,res) => {
     
     let result = db.filter(data=>{
         let takenDate = new Date(data.createdTime);
+        data.createdTime = takenDate.toLocaleString('tr-TR')
         return (Math.abs(currentDate - takenDate) < 1800000) //1800000 ms = 30 min
     })
     res.send(result)
@@ -25,7 +26,7 @@ app.post('/datas',(req,res) => {
     const newData={
         id: uniqid(),
         ttfb: req.body.ttfb,
-        createdTime: req.body.createdTime
+        createdTime: new Date()
     }
     db.push(newData);
     res.status(200).send(newData)
