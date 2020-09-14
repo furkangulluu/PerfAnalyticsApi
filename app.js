@@ -25,7 +25,7 @@ app.post('/datas',(req,res) => {
     const newData={
         id: uniqid(),
         ttfb: req.body.ttfb,
-        createdTime: new Date().toLocaleString('tr-TR')
+        createdTime: req.body.createdTime
     }
     db.push(newData);
     res.status(200).send(newData)
