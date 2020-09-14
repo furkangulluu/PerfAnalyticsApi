@@ -25,9 +25,7 @@ app.post('/datas',(req,res) => {
     const newData={
         id: uniqid(),
         ttfb: req.body.ttfb,
-        fpc: req.body.fpc,
         domLoad: req.body.domLoad,
-        windowLoad: req.body.windowLoad,
         createdTime: new Date()
     }
     db.push(newData);
