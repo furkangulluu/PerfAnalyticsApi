@@ -4,6 +4,7 @@ const db = require('./db.json')
 const axios = require('axios')
 const uniqid = require('uniqid');
 var cors = require('cors')
+
 app.use(cors())
 
 app.use(bodyParser.json())
