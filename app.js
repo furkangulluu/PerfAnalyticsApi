@@ -1,7 +1,6 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
 const db = require('./db.json')
-const axios = require('axios')
 const uniqid = require('uniqid');
 var cors = require('cors')
 
@@ -16,7 +15,6 @@ app.get('/datas',(req,res) => {
     
     let result = db.filter(data=>{
         let takenDate = new Date(data.createdTime);
-        data.createdTime = takenDate.toLocaleString('tr-TR')
         return (Math.abs(currentDate - takenDate) < 1800000) //1800000 ms = 30 min
     })
     res.send(result)
